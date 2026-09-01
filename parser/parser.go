@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"strconv"
 
-	"interpreter/ast"
-	"interpreter/lexer"
-	"interpreter/token"
+	"compiler/ast"
+	"compiler/lexer"
+	"compiler/token"
 )
 
 // precedence

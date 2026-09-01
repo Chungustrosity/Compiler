@@ -3,7 +3,7 @@ package lexer
 import (
 	"unicode/utf8"
 
-	"interpreter/token"
+	"compiler/token"
 )
 
 type Lexer struct {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"testing"
 
-	"interpreter/ast"
-	"interpreter/lexer"
+	"compiler/ast"
+	"compiler/lexer"
 )
 
 func TestLetStatement(t *testing.T) {
