@@ -6,7 +6,7 @@ import (
 	"hash/fnv"
 	"strings"
 
-	"interpreter/ast"
+	"compiler/ast"
 )
 
 type ObjectType string
