@@ -42,7 +42,7 @@ func runCompilerTests(t *testing.T, tests []compilerTestCase) {
 			t.Fatalf("testInstructions failed: %s ", err)
 		}
 
-		err = testConstants(t, tt.expectedConstants, bytecode.Constants)
+		err = testConstants(tt.expectedConstants, bytecode.Constants)
 		if err != nil {
 			t.Fatalf("testConstants failed: %s", err)
 		}
@@ -53,7 +53,7 @@ func testInstructions(expected []code.Instructions, actual code.Instructions) er
 	// necessary because we're generating the instructions in compilerTestCase.expected using code.Make, which produces a slice, and we're generating the instruction on an individual basis
 	concatted := concatInstructions(expected)
 
-	if len(actual) != len(expected) {
+	if len(actual) != len(concatted) {
 		return fmt.Errorf("wrong instructions length. \nwant=%q\ngot=%q", concatted, actual)
 	}
 
@@ -65,7 +65,7 @@ func testInstructions(expected []code.Instructions, actual code.Instructions) er
 	return nil
 }
 
-func testConstants(t *testing.T, expected []any, actual []object.Object) error {
+func testConstants(expected []any, actual []object.Object) error {
 	if len(expected) != len(actual) {
 		return fmt.Errorf("wrong number of constants. got=%d, want=%d", len(actual), len(expected))
 	}
@@ -99,7 +99,7 @@ func TestIntegerArithmetic(t *testing.T) {
 	tests := []compilerTestCase{
 		{
 			input:                "1 + 2",
-			expectedConstants:    []interface{}{1, 2},
+			expectedConstants:    []any{1, 2},
 			expectedInstructions: []code.Instructions{code.Make(code.OpConstant, 0), code.Make(code.OpConstant, 1)},
 		},
 	}
