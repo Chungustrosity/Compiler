@@ -22,7 +22,7 @@ type vmTestCase struct {
 	expected any
 }
 
-func runVmTests(t *testing.T, tests []vmTestCase) {
+func runVMTests(t *testing.T, tests []vmTestCase) {
 	t.Helper()
 
 	for _, tt := range tests {
@@ -74,7 +74,7 @@ func TestIntegerArithmetic(t *testing.T) {
 	tests := []vmTestCase{
 		{"1", 1},
 		{"2", 2},
-		{"1 + 2", 2}, // TODO: edit the expected field to reflect the behavior of a fully integerated addition machine
+		{"1 + 2", 3},
 	}
-	runVmTests(t, tests)
+	runVMTests(t, tests)
 }

@@ -1,6 +1,8 @@
 package compiler
 
 import (
+	"fmt"
+
 	"compiler/ast"
 	"compiler/code"
 	"compiler/object"
@@ -46,6 +48,12 @@ func (c *Compiler) Compile(node ast.Node) error {
 		rerr := c.Compile(node.Right)
 		if rerr != nil {
 			return rerr
+		}
+		switch node.Operator {
+		case "+":
+			c.emit(code.OpAdd)
+		default:
+			return fmt.Errorf("unknown operator %s", node.Operator)
 		}
 
 	case *ast.IntegerLiteral:
