@@ -159,3 +159,26 @@ func concatInstructions(s []code.Instructions) code.Instructions {
 	}
 	return out
 }
+
+func TestBooleanExpressions(t *testing.T) {
+	tests := []compilerTestCase{
+		{
+			"true",
+			[]any{},
+			[]code.Instructions{
+				code.Make(code.OpTrue),
+				code.Make(code.OpPop),
+			},
+		},
+		{
+			"false",
+			[]any{},
+			[]code.Instructions{
+				code.Make(code.OpFalse),
+				code.Make(code.OpPop),
+			},
+		},
+	}
+
+	runCompilerTests(t, tests)
+}
