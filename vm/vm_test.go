@@ -33,7 +33,7 @@ func runVmTests(t *testing.T, tests []vmTestCase) {
 			t.Fatalf("vm error: %s", err)
 		}
 
-		vm := new(comp.Bytecode())
+		vm := New(comp.Bytecode())
 		vmerr := vm.Run()
 		if vmerr != nil {
 			t.Fatalf("vm rrror: %s", vmerr)
@@ -68,4 +68,13 @@ func testIntegerObject(expected int64, actual object.Object) error {
 	}
 
 	return nil
+}
+
+func TestIntegerArithmetic(t *testing.T) {
+	tests := []vmTestCase{
+		{"1", 1},
+		{"2", 2},
+		{"1 + 2", 2}, // TODO: edit the expected field to reflect the behavior of a fully integerated addition machine
+	}
+	runVmTests(t, tests)
 }
