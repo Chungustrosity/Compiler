@@ -118,8 +118,8 @@ func (c *Compiler) Compile(node ast.Node) error {
 		if c.lastInstructionIs(code.OpPop) {
 			c.replaceLastPopWithReturn()
 		}
-		if c.lastInstructionIs(code.OpPop) {
-			c.emit(code.OpPop)
+		if !c.lastInstructionIs(code.OpReturnValue) {
+			c.emit(code.OpReturn)
 		}
 		instructions := c.leaveScope()
 
