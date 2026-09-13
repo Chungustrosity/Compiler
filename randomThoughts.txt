@@ -1,0 +1,9 @@
+it does seem wasteful to save the scope in the symbol rather than in the symbol table in the compilation phase ofc,
+because all the symbols belonging to the same symbol table should be in the same scope.
+
+I really like the how the compiler keeps track of the symbol index inside a symbol table using the table's size 
+at definition time of the symbol.
+And how it translates all identifiers to integers that the virtual machine would keep track of variables with,
+it's just a really elegant method of communication between the compiler and the vm.
+I think part of what makes it so fascinating is how it's able to practically turn a hashmap into an array,
+and how that tracks with our lack of need for string literal identifiers entropically.

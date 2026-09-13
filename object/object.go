@@ -72,6 +72,7 @@ func (e *Error) Type() ObjectType { return ERROR_OBJ }
 
 type CompiledFunction struct {
 	Instructions code.Instructions
+	NumLocals    int
 }
 
 func (cf *CompiledFunction) Type() ObjectType { return COMPILED_FUNCTION_OBJ }
