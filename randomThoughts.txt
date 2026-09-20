@@ -7,3 +7,11 @@ And how it translates all identifiers to integers that the virtual machine would
 it's just a really elegant method of communication between the compiler and the vm.
 I think part of what makes it so fascinating is how it's able to practically turn a hashmap into an array,
 and how that tracks with our lack of need for string literal identifiers entropically.
+
+
+I don't get why the author wouldn't just emit code.OpSetLocal after loading every argument on the stack when compiling 
+call expressions.
+LMAOOOOOOOOOOO, guess what the author just did
+
+
+lol it just spent pages 209-210 explaining something I saw coming again, I'm having too many of those moments with this book.
